@@ -168,3 +168,9 @@ anon.session
 
 *.html
 *.png
+
+# Response output files
+app/response/
+
+# Debug scripts
+app/screenshot_debug.py

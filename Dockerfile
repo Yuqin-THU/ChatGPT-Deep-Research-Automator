@@ -40,16 +40,8 @@ RUN apk add --no-cache \
     tzdata \
     xclip
 
-# Noto Sans
-RUN curl -o /tmp/NotoSansCJKjp-hinted.zip https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip
-RUN unzip -o -d /usr/share/fonts/noto /tmp/NotoSansCJKjp-hinted.zip
-
-# Noto Serif
-RUN curl -o /tmp/NotoSerifCJKjp-hinted.zip https://noto-website-2.storage.googleapis.com/pkgs/NotoSerifCJKjp-hinted.zip
-RUN unzip -o -d /usr/share/fonts/noto /tmp/NotoSerifCJKjp-hinted.zip
-
-# デフォルトだと root 以外がフォントを読めない
-RUN chmod 644 /usr/share/fonts/noto/*.otf
+# Noto Sans CJK 字体（通过 apk 安装，支持中日韩文显示）
+RUN apk add --no-cache font-noto-cjk
 
 # 後述の設定ファイル
 COPY ./local.conf /etc/fonts/local.conf
@@ -60,9 +52,9 @@ RUN fc-cache -fv
 # 確認
 RUN fc-match "sans-serif"
 RUN fc-match "serif"
-ENV LANG=ja_JP.UTF-8
-ENV LC_ALL=ja_JP.UTF-8
-ENV TZ=Asia/Tokyo
+ENV LANG=zh_CN.UTF-8
+ENV LC_ALL=zh_CN.UTF-8
+ENV TZ=Asia/Shanghai
 
 
 # Install x11vnc

@@ -10,7 +10,7 @@ prompt:
   revise: ""
   
 selectors:
-  text_input_placeholder: "p[data-placeholder=\"Ask anything\"]"
+  text_input_placeholder: "p[data-placeholder=\"Get a detailed report\"]"
   followup_placeholder: "p[data-placeholder=\"Provide as many details as possible for best results.\"]"
   parent_container: "w-full"
   send_button: "[data-testid=\"send-button\"]"
@@ -19,7 +19,7 @@ selectors:
   main_article: "main article"
   
 buttons:
-  deep_research: "Deep Research"
+  deep_research: "Deep research"
   
 timings:
   initial_wait: 10  # 秒
